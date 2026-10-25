@@ -1,6 +1,7 @@
 const express = require('express');
 const userRouter = require('./routes/user.routes');
 const connectDB = require('./config/db');
+const newsRoutes = require('./routes/news.routes');
 const app = express();
 const port = 3000;
 
@@ -8,6 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/users', userRouter)
+app.use('/news', newsRoutes)
 
 
 async function startServer() {
